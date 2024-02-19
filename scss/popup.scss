@@ -1,0 +1,119 @@
+.popup {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: #fff;
+  padding: 60px;
+  transition: 0.5s all;
+  width: 520px;
+  border-radius: 2px;
+  &.active {
+    transform: translate(-50%, -50%) scale(1);
+    transition: 0.5s all;
+  }
+  &_bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s all;
+    z-index: 999;
+    &.active {
+      opacity: 1;
+      pointer-events: all;
+      transition: 0.5s all;
+    }
+  }
+  &-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+  &-title {
+    font-size: 24px;
+    font-family: 'Roboto_Bold';
+    font-weight: 700;
+    line-height: 28px;
+    white-space: nowrap;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  &_form {
+    display: flex;
+    flex-direction: column;
+    &-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    &.hidden {
+      display: none;
+    }
+    &-text {
+      margin-bottom: 7px;
+      font-size: 14px;
+      line-height: 16px;
+      position: relative;
+      &.required::after {
+        position: absolute;
+        content: '*';
+        color: #6cb71d;
+        font-size: 14px;
+        top: 0;
+      }
+    }
+    &-input {
+      width: 100%;
+      height: 40px;
+      padding: 0 10px;
+      border: 1px solid #e4e4e4;
+      border-radius: 2px;
+      &.error {
+        border-color: #ff3860;
+      }
+    }
+  }
+  &-btn {
+    align-self: center;
+    margin-bottom: 30px;
+    &-success {
+      display: block;
+      align-self: center;
+      margin-top: 40px;
+      cursor: pointer;
+      &.hidden {
+        display: none;
+      }
+    }
+  }
+  &-text {
+    text-align: center;
+  }
+  &-error {
+    font-size: 12px;
+    color: #ff3860;
+  }
+  &-success {
+    text-align: center;
+    line-height: 18px;
+    font-size: 16px;
+  }
+}
+@media (max-width: 768px) {
+  .popup {
+    width: 100%;
+    padding: 60px 20px;
+    &-title {
+      white-space: initial;
+    }
+  }
+}

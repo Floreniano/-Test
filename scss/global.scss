@@ -1,0 +1,421 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: 'Roboto_Regular';
+  font-weight: 400;
+  font-size: 16px;
+  &.lock {
+    overflow: hidden;
+  }
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+.h1 {
+  font-size: 64px;
+  line-height: 64px;
+  font-family: 'Roboto_Bold';
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.h2 {
+  font-size: 30px;
+  line-height: 23px;
+  font-family: 'Roboto_Bold';
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.green {
+  color: #6cb71d;
+}
+.bold {
+  font-family: 'Roboto_Bold';
+  font-weight: 700;
+}
+.btn {
+  background-color: #6cb71d;
+  padding: 13px 53px;
+  font-size: 16px;
+  line-height: 18px;
+  color: #ffff;
+  border: none;
+  border-radius: 10px;
+  position: relative;
+  z-index: 2;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #6cb71d;
+    filter: blur(15px);
+    opacity: 0;
+    transition: opacity 0.3s ease 0s;
+    z-index: -1;
+  }
+  &:hover::before {
+    opacity: 1;
+  }
+}
+.ymaps-2-1-79-gototech,
+.ymaps-2-1-79-copyright,
+.ymaps-2-1-79-map-copyrights-promo {
+  display: none !important;
+}
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  &::before {
+    position: absolute;
+    content: '';
+    background-color: #ffff;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    backdrop-filter: blur(10px);
+    transition: all 0.5s ease 0s;
+  }
+  &-scroll::before {
+    box-shadow: 0px -6px 4px -5px rgba(0, 0, 0, 0.6) inset;
+  }
+  &_top {
+    border-bottom: 1px solid #bdbec0;
+    &_inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0 18px;
+      & .header_city,
+      & .header_phone,
+      & .header_clock {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+      }
+      & .header_city {
+        cursor: pointer;
+        transition: all 0.3s ease;
+        &:hover {
+          color: #6cb71d;
+          .city-path {
+            fill: #6cb71d;
+          }
+        }
+        & .city-path {
+          transition: all 0.3s ease;
+        }
+      }
+      & .header_phone {
+        cursor: pointer;
+        transition: all 0.3s ease;
+        &:hover {
+          color: #6cb71d;
+          .phone-path {
+            fill: #6cb71d;
+          }
+        }
+        & .phone-path {
+          transition: all 0.3s ease;
+        }
+      }
+    }
+  }
+  &_bottom {
+    &_inner {
+      display: flex;
+      justify-content: space-between;
+      padding: 26px 0 20px;
+      transition: all 0.4s ease;
+      position: relative;
+      & .nav_list {
+        display: flex;
+        gap: 33px;
+        &-link {
+          cursor: pointer;
+          transition: all 0.3s ease;
+          &:hover {
+            color: #6cb71d;
+          }
+        }
+      }
+      & .header_basket {
+        display: flex;
+        cursor: pointer;
+        position: relative;
+        transition: all 0.3s ease;
+        &:hover {
+          color: #6cb71d;
+        }
+        &-value {
+          position: absolute;
+          top: -13px;
+          left: 13px;
+          color: #ffff;
+          background-color: #6cb71d;
+          border-radius: 50%;
+          padding: 2px 6px;
+        }
+        &-text {
+          margin-left: 20px;
+        }
+        .basket-path {
+          transition: all 0.3s ease;
+        }
+        &:hover .basket-path {
+          fill: #6cb71d;
+        }
+      }
+    }
+  }
+  &_menu {
+    width: 30px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+    display: none;
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      background-color: #333333;
+      width: 100%;
+      height: 2px;
+      left: 0;
+      transition: all 0.3s ease;
+      border-radius: 2px;
+    }
+    &::before {
+      top: 1px;
+    }
+    &::after {
+      bottom: 1px;
+    }
+    & span {
+      top: 9px;
+      left: 0;
+      position: absolute;
+      background-color: #333333;
+      width: 100%;
+      height: 2px;
+    }
+  }
+}
+.footer {
+  padding-top: 105px;
+  &_inner {
+    background-color: #4b4b4b;
+  }
+  &_top {
+    max-width: 1506px;
+    margin: 0 auto;
+    border-bottom: 1px solid #ffffff;
+    &_inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 38px 0 30px;
+    }
+  }
+  &_list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    &-link {
+      color: #ffff;
+      transition: all 0.3s ease;
+      position: relative;
+      font-size: 15px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      &::after {
+        position: absolute;
+        content: '';
+        left: 50%;
+        transform: translate(-50%);
+        display: block;
+        width: 0;
+        height: 1px;
+        background: #efc58b;
+        transition: all 0.3s ease;
+      }
+      &:hover {
+        color: #efc58b;
+      }
+      &:hover::after {
+        width: 100%;
+      }
+    }
+  }
+  &_bottom {
+    display: flex;
+    flex-direction: column;
+    padding: 25px 0 30px;
+  }
+  &_socials {
+    display: flex;
+    justify-content: space-between;
+    &-text {
+      font-size: 14px;
+      color: #ffff;
+      font-size: 14px;
+      line-height: 24px;
+    }
+  }
+  &_cookies {
+    color: #ffff;
+    line-height: 24px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .h1 {
+    font-size: 40px;
+    line-height: 40px;
+  }
+  .h2 {
+    font-size: 22px;
+    line-height: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .h1 {
+    font-size: 28px;
+    line-height: 32px;
+  }
+  .header {
+    &_clock {
+      display: none !important;
+    }
+    &_top {
+      &_inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+    &_menu {
+      display: flex;
+      z-index: 11;
+      transition: all 0.3s ease;
+      &.active::before {
+        transform: rotate(45deg);
+        top: 9px;
+      }
+      &.active::after {
+        transform: rotate(-45deg);
+        bottom: 9px;
+      }
+      &.active span {
+        opacity: 0;
+        transition: all 0.3s ease;
+      }
+    }
+    &_basket-text {
+      display: none;
+    }
+    &_basket-value {
+      top: -19px !important;
+      left: -15px !important;
+    }
+    &_basket-img {
+      transform: scale(-1, 1);
+    }
+  }
+  .nav {
+    position: absolute;
+    top: var(--nav-position);
+    display: block;
+    background-color: #ffff;
+    left: -10px;
+    box-shadow: -5px -5px 7px -5px rgba(0, 0, 0, 0.6) inset;
+    transition: all 0.4s ease-out;
+    overflow: hidden;
+    clip: rect(auto, auto, 0, auto);
+    &.active {
+      clip: rect(auto, auto, var(--nav-height), auto);
+    }
+    &_list {
+      padding: 10px;
+      flex-direction: column;
+      gap: 0 !important;
+
+      &-link {
+        padding: 15px 0;
+        display: block;
+      }
+    }
+  }
+  .footer {
+    &_top {
+      &-logo {
+        max-width: 130px;
+      }
+      &_inner {
+        flex-direction: column;
+      }
+    }
+    &_list {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      &-item {
+        overflow: hidden;
+        padding-bottom: 1px;
+        text-overflow: ellipsis;
+        color: #ffff;
+      }
+      &-link {
+        font-size: 13px;
+      }
+    }
+    &_cookies {
+      margin-top: 5px;
+      font-size: 12px;
+    }
+  }
+}
+@media (max-width: 500px) {
+  .container {
+    padding: 0 5px;
+  }
+  .header {
+    &_logo {
+      grid-row: 2 span;
+    }
+    &_city,
+    &_phone {
+      gap: 3px !important;
+      justify-self: flex-end;
+      &-value {
+        font-size: 12px !important;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+      }
+    }
+    &_top_inner {
+      display: grid;
+      gap: 5px;
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+    }
+    &_phone {
+      grid-column-start: 2;
+    }
+  }
+}
